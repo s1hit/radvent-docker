@@ -13,5 +13,9 @@ RUN apk update --no-cache && \
     apk del .ruby-builddeps
 
 RUN echo -e "development:\n  secret_key_base: `rake secret`" > $APP_ROOT/config/secrets.yml
+RUN echo -e "production:\n  secret_key_base: `rake secret`" >> $APP_ROOT/config/secrets.yml
+RUN echo -e "test:\n  secret_key_base: `rake secret`" >> $APP_ROOT/config/secrets.yml
+
+RUN rake assets:precompile RAILS_ENV=production
 
 CMD ["./startup.sh"]

@@ -1,3 +1,3 @@
 #!/bin/sh
 rake db:migrate
-rails server -b 0.0.0.0
+rails server -e production -b 0.0.0.0
