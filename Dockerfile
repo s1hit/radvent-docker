@@ -13,6 +13,5 @@ RUN apk update --no-cache && \
     apk del .ruby-builddeps
 
 RUN echo -e "development:\n  secret_key_base: `rake secret`" > $APP_ROOT/config/secrets.yml
-RUN rake db:migrate
 
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["./startup.sh"]
