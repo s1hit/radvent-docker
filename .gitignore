@@ -1,0 +1,5 @@
+radvent/config/secrets.yml
+radvent/public/assets/
+radvent/log/
+radvent/tmp/
+radvent/db/data/

@@ -12,6 +12,4 @@ RUN apk update --no-cache && \
     bundle install && \
     apk del .ruby-builddeps
 
-RUN echo -e "development:\n  secret_key_base: `rake secret`" > $APP_ROOT/config/secrets.yml
-
 CMD ["./startup.sh"]
