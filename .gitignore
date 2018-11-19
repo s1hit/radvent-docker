@@ -3,3 +3,5 @@ radvent/public/assets/
 radvent/log/
 radvent/tmp/
 radvent/db/data/
+data/
+web/.htpasswd
