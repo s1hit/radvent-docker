@@ -9,6 +9,7 @@ services:
       RAILS_ENV: "production"
     volumes:
       - ./radvent/:/usr/src/radvent
+    restart: always
   web:
     image: nginx:1.15.6-alpine
     ports:
@@ -18,3 +19,4 @@ services:
       - ./web/.htpasswd:/etc/nginx/.htpasswd
     links:
       - radvent
+    restart: always
