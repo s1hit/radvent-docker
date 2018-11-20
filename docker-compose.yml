@@ -8,7 +8,7 @@ services:
       year: "2018"
       RAILS_ENV: "production"
     volumes:
-      - ./data/:/data/
+      - ./radvent/:/usr/src/radvent
   web:
     image: nginx:1.15.6-alpine
     ports:
