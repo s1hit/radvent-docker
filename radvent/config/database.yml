@@ -23,3 +23,11 @@ test:
 production:
   <<: *default
   database: db/data/production.sqlite3
+
+production1:
+  <<: *default
+  database: db/data/production1.sqlite3
+
+production2:
+  <<: *default
+  database: db/data/production2.sqlite3

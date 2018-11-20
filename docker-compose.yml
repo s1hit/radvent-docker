@@ -1,14 +1,30 @@
 version: "3"
 services:
-  radvent:
+  radvent1:
     build: radvent
     ports:
-      - "3000:3000"
+      - "3001:3000"
+    environment:
+      year: "2017"
+      RAILS_ENV: "production1"
+    volumes:
+      - ./app1/log:/usr/src/radvent/log
+      - ./app1/data:/usr/src/radvent/db/data
+      - ./app1/assets:/usr/src/radvent/public/assets
+      - ./app1/uploads:/usr/src/radvent/public/uploads
+    restart: always
+  radvent2:
+    build: radvent
+    ports:
+      - "3002:3000"
     environment:
       year: "2018"
-      RAILS_ENV: "production"
+      RAILS_ENV: "production2"
     volumes:
-      - ./radvent/:/usr/src/radvent
+      - ./app2/log:/usr/src/radvent/log
+      - ./app2/data:/usr/src/radvent/db/data
+      - ./app2/assets:/usr/src/radvent/public/assets
+      - ./app2/uploads:/usr/src/radvent/public/uploads
     restart: always
   web:
     image: nginx:1.15.6-alpine
@@ -18,5 +34,6 @@ services:
       - ./web/default.conf:/etc/nginx/conf.d/default.conf
       - ./web/.htpasswd:/etc/nginx/.htpasswd
     links:
-      - radvent
+      - radvent1
+      - radvent2
     restart: always

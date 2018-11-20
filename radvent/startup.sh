@@ -1,13 +1,15 @@
 #!/bin/sh
 
-rm -rf ./tmp/*
-
 cat <<EOF > ./config/secrets.yml
 test:
   secret_key_base: `rake secret`"
 development:
   secret_key_base: `rake secret`"
 production:
+  secret_key_base: `rake secret`"
+production1:
+  secret_key_base: `rake secret`"
+production2:
   secret_key_base: `rake secret`"
 EOF
 
